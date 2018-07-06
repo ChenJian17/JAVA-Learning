@@ -5,14 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cn.scau.meetingroom.mapper.OrderMapper;
 import cn.scau.meetingroom.pojo.Order;
 import cn.scau.meetingroom.service.OrderService;
+
 
 @Service
 public class OrderServiceImpl implements OrderService {
 
 	@Autowired
-	OrderService orderService;
+	OrderMapper orderMapper;
 	
 	@Override
 	public List<Order> list() {
