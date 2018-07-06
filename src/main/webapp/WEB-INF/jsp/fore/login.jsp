@@ -78,10 +78,10 @@ button.redButton{
 </head>
 <body>
 <div id="loginDiv">
-	<div class="simpleLogo">
-		<img src="img/site/simpleLogo.png">
-	</div>
-	<img src="img/site/loginBackground.jpg" class="loginBackgroundImg" id="loginBackgroundImg">
+<!-- 	<div class="simpleLogo">
+		<img src="img/site/logo.jpg" height="60" width="80">
+	</div> -->
+	<img src="img/site/background.jpg" class="loginBackgroundImg" id="loginBackgroundImg">
 	<form action="judge_login" method="post">
 		<div class="loginSmallDiv" id="loginSmallDiv">
 			<div class="login_acount_text">账户登录</div>
@@ -98,8 +98,8 @@ button.redButton{
 				<input type="password" placeholder="密码" name="password" id="password">			
 			</div>
 			<div>
-                   	用户<input type="radio" checked="checked" name="user">
-                   	管理员<input type="radio" name="user">
+                   	用户<input type="radio" checked="checked" name="user" value="1">
+                   	管理员<input type="radio" name="user" value="2">
 			</div>
 			<div style="margin-top:20px">
 				<button type="submit" class="btn btn-block redButton">登录</button>

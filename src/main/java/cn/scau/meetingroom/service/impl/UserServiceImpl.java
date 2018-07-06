@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.scau.meetingroom.mapper.UserMapper;
+import cn.scau.meetingroom.pojo.RoomExample;
 import cn.scau.meetingroom.pojo.User;
+import cn.scau.meetingroom.pojo.UserExample;
 import cn.scau.meetingroom.service.UserService;
 
 @Service
@@ -18,7 +20,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> list() {
 		// TODO Auto-generated method stub
-		return null;
+		UserExample example = new UserExample();
+		example.setOrderByClause("id");
+		return userMapper.selectByExample(example);
 	}
 
 	@Override

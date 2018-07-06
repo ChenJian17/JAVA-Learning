@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import cn.scau.meetingroom.mapper.AdminMapper;
 import cn.scau.meetingroom.pojo.Admin;
+import cn.scau.meetingroom.pojo.AdminExample;
+import cn.scau.meetingroom.pojo.UserExample;
 import cn.scau.meetingroom.service.AdminService;
 
 @Service
@@ -18,7 +20,9 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<Admin> list() {
 		// TODO Auto-generated method stub
-		return null;
+		AdminExample example = new AdminExample();
+		example.setOrderByClause("id");
+		return adminMapper.selectByExample(example);
 	}
 
 	@Override
