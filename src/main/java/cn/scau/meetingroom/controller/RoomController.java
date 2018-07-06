@@ -17,8 +17,9 @@ public class RoomController {
 	RoomService roomService;
 	
 	@RequestMapping("admin_room_list")
-	public String list(Model model) {
+	public String list(Model model,String name,String password) {
 		List<Room> rs = roomService.list();
+		
 		model.addAttribute("rs", rs);
 		return "admin/listRoom";
 	}
