@@ -81,7 +81,7 @@ button.redButton{
 	<div class="simpleLogo">
 		<img src="img/site/simpleLogo.png">
 	</div>
-	<img src="img/site/loginBackground.png" class="loginBackgroundImg" id="loginBackgroundImg">
+	<img src="img/site/loginBackground.jpg" class="loginBackgroundImg" id="loginBackgroundImg">
 	<form action="judge_login" method="post">
 		<div class="loginSmallDiv" id="loginSmallDiv">
 			<div class="login_acount_text">账户登录</div>

@@ -29,6 +29,6 @@ public class UserController {
 		}else {
 			
 		}
-		return "fore/login";
+		return "fore/loginFailure";
 	}
 }
