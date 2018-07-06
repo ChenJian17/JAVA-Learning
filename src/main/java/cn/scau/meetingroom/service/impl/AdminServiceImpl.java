@@ -30,7 +30,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
-         int ad = 1;
+		adminMapper.deleteByPrimaryKey(id);
 	}
 
 	@Override
