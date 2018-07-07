@@ -27,25 +27,25 @@ public class RoomServiceImpl implements RoomService {
 	@Override
 	public void add(Room room) {
 		// TODO Auto-generated method stub
-		
+		roomMapper.insert(room);
 	}
 
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
-		
+		roomMapper.deleteByPrimaryKey(id);
 	}
 
 	@Override
 	public Room get(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return roomMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
 	public void update(Room room) {
 		// TODO Auto-generated method stub
-		
+		roomMapper.updateByPrimaryKeySelective(room);
 	}
 	
 }

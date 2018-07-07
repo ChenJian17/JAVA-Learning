@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.scau.meetingroom.pojo.Admin;
-import cn.scau.meetingroom.pojo.Room;
 import cn.scau.meetingroom.pojo.User;
 import cn.scau.meetingroom.service.AdminService;
 import cn.scau.meetingroom.service.UserService;
@@ -53,7 +52,7 @@ public class UserController {
         		}
         	}
         	if(flag) {
-        		return "fore/adminLoginSuccess";
+        		return "redirect:admin_room_list";
         	}
         }
 		return "fore/loginFailure";
