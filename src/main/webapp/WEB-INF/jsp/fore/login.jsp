@@ -98,7 +98,7 @@ button.redButton{
 				<input type="password" placeholder="密码" name="password" id="password">			
 			</div>
 			<div>
-                   	用户<input type="radio" checked="checked" name="user" value="1" style="margin-right:210px">
+                   	用户<input type="radio" checked="checked" name="user" value="1">
                    	管理员<input type="radio" name="user" value="2">
 			</div>
 			<div style="margin-top:20px">
