@@ -28,19 +28,19 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void add(User user) {
 		// TODO Auto-generated method stub
-
+		userMapper.insert(user);
 	}
 
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
-
+		userMapper.deleteByPrimaryKey(id);
 	}
 
 	@Override
 	public User get(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return userMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void update(User user) {
 		// TODO Auto-generated method stub
-
+		userMapper.updateByPrimaryKeySelective(user);
 	}
 
 }
