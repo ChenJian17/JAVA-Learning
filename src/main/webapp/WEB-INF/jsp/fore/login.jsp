@@ -7,7 +7,7 @@
 <script src="js/jquery/2.0.0/jquery.min.js"></script>
 <link href="css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
 <script src="js/bootstrap/3.3.6/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>会议室预定系统</title>
 <style type="text/css">
 div.simpleLogo{
 	padding: 32px 0px;

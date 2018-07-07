@@ -9,10 +9,10 @@
 
 </script>
 
-<title>会议室管理</title>
+<title>会议室预定系统-后台管理</title>
 
 <div class="workingArea">
-	<h1 class="label label-info" >分类管理</h1>
+	<h1 class="label label-info" >会议室管理</h1>
 	<br>
 	<br>
 	
@@ -24,6 +24,8 @@
 					<th>会议室名称</th>
 					<th>容量</th>
 					<th>设备</th>
+					<th>编辑</th>
+                    <th>删除</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -34,6 +36,10 @@
 					<td>${r.name }</td>
 					<td>${r.capacity }</td>
 					<td>${r.device }</td>
+					<td><a href="admin_room_edit?id=${r.id}">
+					         <span class="glyphicon glyphicon-edit"></span></a></td>
+                    <td><a deleteLink="true" href="admin_room_delete?id=${r.id}">
+                             <span class="   glyphicon glyphicon-trash"></span></a></td>
 				</tr>
 				</c:forEach>
 			</tbody>
@@ -41,8 +47,35 @@
 	</div>
 	
 	<div class="pageDiv">
-		<%//@include file="../include/admin/adminPage.jsp" %>
+		<%@include file="../include/admin/adminPage.jsp" %>
 	</div>
+	
+	<div class="panel panel-warning addDiv">
+      <div class="panel-heading">新增会议室</div>
+      <div class="panel-body">
+            <form method="post" id="addForm" action="admin_room_add">
+                <table class="addTable">
+                    <tr>
+                        <td>会议室名称</td>
+                        <td><input  id="name" name="name" type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td>会议室容量</td>
+                        <td><input  id="capacity" name="capacity" type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td>会议室设备</td>
+                        <td><input  id="device" name="device" type="text" class="form-control"></td>
+                    </tr>
+                    <tr class="submitTR">
+                        <td colspan="2" align="center">
+                            <button type="submit" class="btn btn-success">提 交</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+      </div>
+    </div>
 	
 	
 </div>
