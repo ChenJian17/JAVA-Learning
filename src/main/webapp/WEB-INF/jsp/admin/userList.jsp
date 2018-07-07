@@ -83,7 +83,7 @@
                     </tr>
                     <tr>
                         <td>用户邮件</td>
-                        <td><input  id="email" name="mail" type="text" class="form-control"></td>
+                        <td><input  id="email" name="email" type="text" class="form-control"></td>
                     </tr>
 					<tr>
                         <td>用户性别</td>
