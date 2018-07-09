@@ -112,7 +112,8 @@ footer{
    margin: 0px auto;  
    position: absolute;  
    bottom:0px;  
-   width: 100%;  
+   width: 100%; 
+   height:100px; 
 }
 .sizes{
 font-size:30px;
@@ -122,6 +123,10 @@ color:white;
 font-size:20px;
 color:white;
 }  
+body,p{
+margin: 0;
+padding:0;
+} 
 </style>
 </head>
 <body>
@@ -172,13 +177,12 @@ color:white;
 	                      值得信赖！！！
 	     </p>
 	  </div>
+</div>
 	  <div  style="background-color:black" class="footer">
 	        <p align="center">
 	  	 	   © 黄顺通、张永胜、陈健、赖志辉 版权所有<br /> 
 		　　                 2018-07-15完成于华南农业大学
 	        </p>
 	  </div>
-   
-</div>
 </body>
 </html>
