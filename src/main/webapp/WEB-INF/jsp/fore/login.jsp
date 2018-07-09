@@ -9,6 +9,11 @@
 <script src="js/bootstrap/3.3.6/bootstrap.min.js"></script>
 <title>会议室预定系统</title>
 <style type="text/css">
+div#loginDiv{
+	height:100%;
+	background-color:black;
+}
+
 div.simpleLogo{
 	padding: 32px 0px;
 }
@@ -105,9 +110,8 @@ button.redButton{
 	font-weight: bold;
 }
 
-footer{  
+div#footer{  
    clear: both;  
-   display: block;  
    text-align: center;   
    margin: 0px auto;  
    position: absolute;  
@@ -130,6 +134,7 @@ padding:0;
 </style>
 </head>
 <body>
+<div id="all">
 <div id="loginDiv">
 <!-- 	<div class="simpleLogo">
 		<img src="img/site/logo.jpg" height="60" width="80">
@@ -178,11 +183,15 @@ padding:0;
 	     </p>
 	  </div>
 </div>
-	  <div  style="background-color:black" class="footer">
+	  <div  style="background-color:black" id="footer">
+	  
 	        <p align="center">
+	        <br><br>
 	  	 	   © 黄顺通、张永胜、陈健、赖志辉 版权所有<br /> 
 		　　                 2018-07-15完成于华南农业大学
 	        </p>
 	  </div>
+
+</div>
 </body>
 </html>
