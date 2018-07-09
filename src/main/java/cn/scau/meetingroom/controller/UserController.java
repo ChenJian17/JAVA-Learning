@@ -31,7 +31,6 @@ public class UserController {
 	@RequestMapping("fore_login")
 	public String list(Model model) {
 		return "fore/login";
-		//return "admin/userList";
 	}
 	
 	@RequestMapping("judge_login")
@@ -49,7 +48,6 @@ public class UserController {
         	if(flag) {
         		return "fore/userLoginSuccess";
         	}
-        	
         }else {//管理员登录
 			List<Admin> rs = adminService.list();
         	for(Admin a : rs) {

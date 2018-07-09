@@ -1,7 +1,6 @@
 package cn.scau.meetingroom.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +12,6 @@ import com.github.pagehelper.PageInfo;
 import cn.scau.meetingroom.pojo.Room;
 import cn.scau.meetingroom.service.RoomService;
 import cn.scau.meetingroom.util.Page;
-import net.sf.jsqlparser.statement.update.Update;
 
 @Controller
 @RequestMapping("")
@@ -25,7 +23,7 @@ public class RoomController {
 	public String list(Model model ,Page page) {
 		/*List<Room> rs = roomService.list();
 		model.addAttribute("rs", rs);*/
-		
+
 		PageHelper.offsetPage(page.getStart(),page.getCount());
 		List<Room> rs = roomService.list();
 		int total = (int) new PageInfo<>(rs).getTotal();
