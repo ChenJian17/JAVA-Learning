@@ -41,6 +41,7 @@ public class RoomController {
 		return "redirect:admin_room_list";
 	}
 	
+	//用于打开编辑页面
 	@RequestMapping("admin_room_edit")
 	public String edit(Model model,int id) {
 		Room room = roomService.get(id);
@@ -48,6 +49,7 @@ public class RoomController {
 		return "admin/roomEdit";
 	}
 	
+	//用于编辑页面提交 更新数据
 	@RequestMapping("admin_room_update")
 	public String Update(Room room) {
 		roomService.update(room);
