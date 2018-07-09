@@ -2,6 +2,8 @@ package cn.scau.meetingroom.mapper;
 
 import cn.scau.meetingroom.pojo.Room;
 import cn.scau.meetingroom.pojo.RoomExample;
+
+import java.util.Date;
 import java.util.List;
 
 public interface RoomMapper {
@@ -18,4 +20,7 @@ public interface RoomMapper {
     int updateByPrimaryKeySelective(Room record);
 
     int updateByPrimaryKey(Room record);
+    
+    //自定义：查询空会议室
+    List<Room> selectEmptyMeetingRoom(Date startTime,Date endTime);
 }

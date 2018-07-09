@@ -60,6 +60,15 @@
     from room
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <!-- 自定义方法：查询空会议室 -->
+  <select id="selectEmptyMeetingRoom" parameterType="cn.scau.meetingroom.pojo.Order" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" /> from room where id not in(
+       select rid from orderTable
+       where startTime between #{startTime} and #{endTime}
+          or endTime between #{startTime} and #{endTime}
+    )
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from room
     where id = #{id,jdbcType=INTEGER}
