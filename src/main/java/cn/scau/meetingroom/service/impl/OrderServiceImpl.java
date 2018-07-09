@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import cn.scau.meetingroom.mapper.OrderMapper;
 import cn.scau.meetingroom.pojo.Order;
+import cn.scau.meetingroom.pojo.OrderExample;
 import cn.scau.meetingroom.service.OrderService;
 
 
@@ -19,13 +20,15 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<Order> list() {
 		// TODO Auto-generated method stub
-		return null;
+		OrderExample example = new OrderExample();
+		example.setOrderByClause("id desc");
+		return orderMapper.selectByExample(example);
 	}
 
 	@Override
 	public void add(Order order) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override

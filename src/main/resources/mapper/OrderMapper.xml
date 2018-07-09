@@ -5,7 +5,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
     <result column="rid" jdbcType="INTEGER" property="rid" />
-    <result column="date" jdbcType="DATE" property="date" />
+    <result column="date" jdbcType="TIMESTAMP" property="date" />
     <result column="startTime" jdbcType="TIMESTAMP" property="startTime" />
     <result column="endTime" jdbcType="TIMESTAMP" property="endTime" />
   </resultMap>
@@ -48,7 +48,7 @@
     </if>
     'false' as QUERYID,
     <include refid="Base_Column_List" />
-    from order
+    from orderTable
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -59,21 +59,21 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from order
+    from orderTable
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from order
+    delete from orderTable
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.scau.meetingroom.pojo.Order" useGeneratedKeys="true">
-    insert into order (uid, rid, date, 
+    insert into orderTable (uid, rid, date, 
       startTime, endTime)
-    values (#{uid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER}, #{date,jdbcType=DATE}, 
+    values (#{uid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER}, #{date,jdbcType=TIMESTAMP}, 
       #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.scau.meetingroom.pojo.Order" useGeneratedKeys="true">
-    insert into order
+    insert into orderTable
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="uid != null">
         uid,
@@ -99,7 +99,7 @@
         #{rid,jdbcType=INTEGER},
       </if>
       <if test="date != null">
-        #{date,jdbcType=DATE},
+        #{date,jdbcType=TIMESTAMP},
       </if>
       <if test="startTime != null">
         #{startTime,jdbcType=TIMESTAMP},
@@ -110,7 +110,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.scau.meetingroom.pojo.Order">
-    update order
+    update orderTable
     <set>
       <if test="uid != null">
         uid = #{uid,jdbcType=INTEGER},
@@ -119,7 +119,7 @@
         rid = #{rid,jdbcType=INTEGER},
       </if>
       <if test="date != null">
-        date = #{date,jdbcType=DATE},
+        date = #{date,jdbcType=TIMESTAMP},
       </if>
       <if test="startTime != null">
         startTime = #{startTime,jdbcType=TIMESTAMP},
@@ -131,10 +131,10 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.scau.meetingroom.pojo.Order">
-    update order
+    update orderTable
     set uid = #{uid,jdbcType=INTEGER},
       rid = #{rid,jdbcType=INTEGER},
-      date = #{date,jdbcType=DATE},
+      date = #{date,jdbcType=TIMESTAMP},
       startTime = #{startTime,jdbcType=TIMESTAMP},
       endTime = #{endTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
