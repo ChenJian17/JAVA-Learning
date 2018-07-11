@@ -43,9 +43,15 @@ public class UserController {
 	}
 	
 	@RequestMapping("fore_user_message")
-	public String userMessage(Model model,HttpSession session) {
-		User user = (User)session.getAttribute("user");
-		return "fore/login";
+	public String userMessage(Model model,User user) {
+		model.addAttribute("user",user);
+		return "fore/userEdit";
+	}
+	
+	@RequestMapping("user_message_update")
+	public String userMessageUpdate(User user) {
+		userService.update(user);
+		return "fore/userEdit";
 	}
 	
 	@RequestMapping("judge_login")
@@ -58,7 +64,8 @@ public class UserController {
         	for(User u : us) {
         		if(u.getName().equals(name) && u.getPassword().equals(password)) {
         			flag = true;
-        			session.setAttribute("user", u);
+        			//session.setAttribute("user", u);
+        			model.addAttribute("user",u);
         		}
         	}
         	if(flag) {
@@ -106,8 +113,9 @@ public class UserController {
 	}
 	
 	@RequestMapping("admin_user_update")
-	public String Update(User user) {
+	public String Update(User user,HttpSession session) {
 		userService.update(user);
+	
 		return "redirect:admin_user_list";
 	}
 	@RequestMapping("admin_user_delete")
