@@ -32,6 +32,19 @@ public class RoomController {
 		model.addAttribute("page", page);
 		return "admin/listRoom";
 	}
+	@RequestMapping("fore_room_list")
+	public String forelist(Model model ,Page page) {
+		/*List<Room> rs = roomService.list();
+		model.addAttribute("rs", rs);*/
+
+		PageHelper.offsetPage(page.getStart(),page.getCount());
+		List<Room> rs = roomService.list();
+		int total = (int) new PageInfo<>(rs).getTotal();
+	    page.setTotal(total);
+		model.addAttribute("rs", rs);
+		model.addAttribute("page", page);
+		return "fore/userLoginSuccess";
+	}
 	
 	@RequestMapping("admin_room_add")
 	public String add(Model model,Room room) {
