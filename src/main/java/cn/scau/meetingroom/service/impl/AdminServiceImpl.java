@@ -40,13 +40,13 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Admin get(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return adminMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
 	public void update(Admin admin) {
 		// TODO Auto-generated method stub
-
+		adminMapper.updateByPrimaryKeySelective(admin);
 	}
 
 }

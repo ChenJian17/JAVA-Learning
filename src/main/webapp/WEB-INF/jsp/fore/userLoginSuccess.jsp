@@ -29,23 +29,24 @@
 				<tr class="success">
 					<th>会议室ID</th>
 					<th>会议室名称</th>
-					<th>预定日期</th>
-					<th>开始使用时间</th>
-					<th>结束使用时间</th>
-					<th>预订人</th>
+					<th>容量</th>
+					<th>设备</th>
+					<th>开会人员情况</th>
+					<th>预定情况</th>
 				</tr>
 			</thead>
-	        <tbody>
+			<tbody>
+				<c:forEach items="${rs}" var="r">
 				
 				<tr>
-					<td>id</td>
-					<td>name </td>
-					<td>date</td>
-					<td>startTime </td>
-					<td>endTime </td>
-                    <td>userName </td>
+					<td>${r.id}</td>
+					<td>${r.name }</td>
+					<td>${r.capacity }</td>
+					<td>${r.device }</td>
+					<td><a href="admin_room_edit?id=${r.id}">
+					         <span class="glyphicon glyphicon-edit"></span></a></td>
 				</tr>
-				
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>

@@ -28,25 +28,25 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public void add(Order order) {
 		// TODO Auto-generated method stub
-		
+		orderMapper.insert(order);
 	}
 
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
-
+		orderMapper.deleteByPrimaryKey(id);
 	}
 
 	@Override
 	public Order get(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return orderMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
 	public void update(Order order) {
 		// TODO Auto-generated method stub
-
+		orderMapper.updateByPrimaryKey(order);
 	}
 
 	@Override

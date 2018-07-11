@@ -46,7 +46,8 @@ public class UserController {
         		}
         	}
         	if(flag) {
-        		return "fore/userLoginSuccess";
+//        		return "fore/userLoginSuccess";
+        		return "fore/modelHomePage";
         	}
         }else {//管理员登录
 			List<Admin> rs = adminService.list();
