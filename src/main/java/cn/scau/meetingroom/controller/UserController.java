@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,9 +37,20 @@ public class UserController {
 		return "fore/login";
 	}
 	
+	@RequestMapping("fore_user_logout")
+	public String userLogout(Model model) {
+		return "fore/login";
+	}
+	
+	@RequestMapping("fore_user_message")
+	public String userMessage(Model model,HttpSession session) {
+		User user = (User)session.getAttribute("user");
+		return "fore/login";
+	}
+	
 	@RequestMapping("judge_login")
 	public String judge(Model model, Page page,String name, String password,
-			HttpServletRequest request) throws UnsupportedEncodingException {
+			HttpServletRequest request,HttpSession session) throws UnsupportedEncodingException {
 		String radio = request.getParameter("user");
         boolean flag = false;
         if(radio.equals("1")) {//用户登录
@@ -46,18 +58,10 @@ public class UserController {
         	for(User u : us) {
         		if(u.getName().equals(name) && u.getPassword().equals(password)) {
         			flag = true;
+        			session.setAttribute("user", u);
         		}
         	}
         	if(flag) {
-//        		return "fore/userLoginSuccess";
-        		PageHelper.offsetPage(page.getStart(),page.getCount());
-        		List<Room> rooms = roomService.list();
-        		int total = (int) new PageInfo<>(rooms).getTotal();
-        		System.out.println("total = "+total);
-        	    page.setTotal(total);
-        		model.addAttribute("rs", rooms);
-        		model.addAttribute("page", page);
-//        		return "fore/modelHomePage";
         		return "redirect:fore_room_list";
         	}
         }else {//管理员登录

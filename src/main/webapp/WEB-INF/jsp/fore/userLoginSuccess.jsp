@@ -4,8 +4,45 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="../include/fore/foreHeader.jsp"%>
 <%@include file="../include/fore/foreNavigator.jsp"%>
-<script>
+<script type="text/javascript">
+    onload = function ()
+    {
+       var year=new Date().getFullYear(); //获取当前年份
+       var sel = document.getElementById ('year');//获取select下拉列表
+       for ( var i = 2018; i <= year; i++)//循环添加2006到当前年份加3年的每个年份依次添加到下拉列表
+       {
+           var option = document.createElement ('option');
+           option.value = i;
+           var txt = document.createTextNode (i);
+           option.appendChild (txt);
+           sel.appendChild (option);
+       }
+       
+       var month =new Date().getMonth()+1; //获取月份
+       var set = document.getElementById ('month');//获取select下拉列表
 
+       for ( var i = month; i <= month+11,i<=12; i++)
+       {
+           var option = document.createElement ('option');
+           option.value = i;
+           var txt = document.createTextNode (i);
+           option.appendChild (txt);
+           set.appendChild (option);
+       }
+      
+       var date = new Date(new Date().getFullYear(), new Date().getMonth()+1, 1),
+       lastDay = new Date(date.getTime() - 864e5).getDate();
+      
+       var setDay = document.getElementById ('day');//获取select下拉列表
+       for ( var i = new Date().getDate(); i <=lastDay; i++)
+       {
+           var option = document.createElement ('option');
+           option.value = i;
+           var txt = document.createTextNode (i);
+           option.appendChild (txt);
+           setDay.appendChild (option);
+       }
+    }
 </script>
 
 <title>首页-会议室预定</title>
@@ -17,6 +54,19 @@
     <div class="input-group">
       <!-- <input type="text" style="width:100px"  class="form-control" placeholder="startTime">
       <input type="text" style="width:100px"  class="form-control" placeholder="endTime"> -->
+      <select id="year"></select><span>年</span>
+      <select id="month"></select><span>月</span>
+      <select id="day"></select><span>日</span>
+       <select id="st" placeholder="09:00:00">
+        <option >09:00:00</option>
+		 <option >10:00:00</option>
+		 <option >11:00:00</option>
+       </select><span>开始</span>
+       <select id="et" placeholder="11:00:00">
+         <option >10:00:00</option>
+		 <option >11:00:00</option>
+		 <option >12:00:00</option>
+       </select><span>结束</span>
       <span>  </span><button class="btn btn-primary" type="button">查询空会议室</button>
       
     </div>
