@@ -15,118 +15,91 @@
                 </li>
                 <li class="start">
                     <a href="">
-                        <i class=" icon-reorder"></i>
+                        <i class="icon-reorder"></i>
                         <span class="title">菜单</span>
                     </a>
                 </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="icon-comments"></i>
-                        <span class="title">微留言</span>
-                        <span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="">留言板设置</a>
-                            <a href="">留言列表</a>
-                            <a href="">黑名单列表</a>
-                        </li>
-                    </ul>
-                </li>
+                
                 <li>
                     <a href="">
                         <i class="icon-home"></i>
-                        <span class="title">抢购</span>
+                        <span class="title">预定会议室</span>
                     </a>
                 </li>
-                <!--  <li><a href="">360全景</a></li> -->
-                <li>
-                    <a href="javascript:;">
+                <!-- <li>
+                    <a href="">
                         <i class="icon-bullhorn"></i>
-                        <span class="title">预约报名</span>
-                        <span class="arrow "></span>
+                        <span class="title">查空会议室</span>
                     </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="">预约管理</a>
-                            <a href="">预约统计</a>
-                            <a href="">客服管理</a>
-                            <a href="">客服评价</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="icon-picture"></i>
-                        <span class="title">微相册</span>
-                        <span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="">创建相册</a>
-                            <a href="">相册管理</a>
-                        </li>
-                    </ul>
-                </li>
+                </li> -->
                 <li>
                     <a href="">
-                        <i class="icon-home"></i>
-                        <span class="title">微官网</span>
+                        <i class="icon-book"></i>
+                        <span class="title">个人预定表</span>
                     </a>
                 </li>
+                
                 <li>
                     <a href="javascript:;">
                         <i class="icon-credit-card"></i>
-                        <span class="title">微名片</span>
+                        <span class="title">关于我们</span>
                         <span class="arrow "></span>
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="">名片模板</a>
-                            <a href="">员工列表</a>
+                            <a href="">联系我们</a>
+                            <a href="">公司介绍</a>
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="icon-book"></i>
-                        <span class="title">微杂志</span>
-                        <span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="">我的杂志</a>
-                            <a href="">消息编辑</a>
-                            <a href="">杂志评论</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="icon-group"></i>
-                        <span class="title">微团购</span>
-                        <span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="">商品管理</a>
-                            <a href="">商品类型管理</a>
-                            <a href="">商品规格管理</a>
-                            <a href="">商品属性管理</a>
-                            <a href="">团购管理</a>
-                        </li>
-                    </ul>
-                </li>
+                
             </ul>
             
             <!-- END SIDEBAR MENU -->
         </div>
         <!-- END SIDEBAR -->
         <!-- BEGIN PAGE -->
+        <%-- <div class="page-content">
+            <%@include file="../../fore/userLoginSuccess.jsp"%>
+        </div> --%>
+        <!-- end PAGE -->
+        <!-- BEGIN PAGE -->
         <div class="page-content">
-            
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div id="portlet-config" class="modal hide">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"></button>
+                    <h3>Widget Settings</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Here will be a configuration form</p>
+                </div>
+            </div>
+            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div class="container-fluid">
+                <!-- BEGIN PAGE HEADER-->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                        <!-- <h3 class="page-title">
+                        
+                        	
+
+                            自定义模块 <small></small>
+
+                        </h3> -->
+                        <%@include file="../../fore/userLoginSuccess.jsp"%>
+                        
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                
+            </div>
+            <!-- END PAGE CONTAINER-->
         </div>
         <!-- end PAGE -->
+        
+        
         <!-- **** -->
         <!-- **** -->
         <!-- === -->
