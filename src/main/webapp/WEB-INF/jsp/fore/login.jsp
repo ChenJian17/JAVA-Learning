@@ -183,14 +183,26 @@ padding:0;
 	     </p>
 	  </div>
 </div>
-	  <div  style="background-color:black" id="footer">
-	  
-	        <p align="center">
+
+	  <footer style="background-color:black">
+ 	      <p align="center">
+	        <br><br>
+	        <pre style="background-color:black; border: 0"> 关于我们           法律声明及隐私政策             廉政举报               联系我们             加入我们           </pre>	 	
+	      </p>
+	      <p>
+	      <br>
+	      <br>
+	        &nbsp&nbsp&nbsp&nbsp&nbsp© 2018-2018 scau.com 版权所有 ICP证粤：粤A2-20080101 
+	        <br><br>
+	        &nbsp&nbsp&nbsp&nbsp&nbsp© 2018-2018 广公网安备  0102030405060708号
+	      </p>
+	      <p align="center">
 	        <br><br>
 	  	 	   © 黄顺通、张永胜、陈健、赖志辉 版权所有<br /> 
 		　　                 2018-07-15完成于华南农业大学
-	        </p>
-	  </div>
+	      </p>
+	  </footer>
+
 
 </div>
 </body>
