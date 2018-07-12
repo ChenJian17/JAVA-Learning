@@ -21,6 +21,5 @@ public interface RoomMapper {
 
     int updateByPrimaryKey(Room record);
     
-    //自定义：查询空会议室
-    List<Room> selectEmptyMeetingRoom(Date startTime,Date endTime);
+    
 }

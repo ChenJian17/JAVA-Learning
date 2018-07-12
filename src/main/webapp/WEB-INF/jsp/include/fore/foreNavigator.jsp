@@ -7,8 +7,8 @@
 		<a class="navbar-brand" href="#nowhere">会议室预定系统</a>
 		
 		<a class="navbar-brand" href="fore_room_list">预定会议室</a>
-		<a class="navbar-brand" href="fore_order_userlist">查个人预定</a>
-		<a class="navbar-brand" href="fore_user_message?user=${user}">用户信息</a>
+		<a class="navbar-brand" href="fore_order_userlist">个人预定管理</a>
+		<a class="navbar-brand" href="fore_user_message?uid=${user.id}">用户信息管理</a>
 		<a class="navbar-brand" href="fore_user_logout">用户退出</a>
 	</nav>
 </div>

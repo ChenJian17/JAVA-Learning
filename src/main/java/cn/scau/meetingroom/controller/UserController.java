@@ -15,7 +15,6 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 import cn.scau.meetingroom.pojo.Admin;
-import cn.scau.meetingroom.pojo.Room;
 import cn.scau.meetingroom.pojo.User;
 import cn.scau.meetingroom.service.AdminService;
 import cn.scau.meetingroom.service.RoomService;
@@ -43,15 +42,16 @@ public class UserController {
 	}
 	
 	@RequestMapping("fore_user_message")
-	public String userMessage(Model model,User user) {
-		model.addAttribute("user",user);
+	public String userMessage(Model model,int uid) {
+		User u = userService.get(uid);
+		model.addAttribute("u",u);
 		return "fore/userEdit";
 	}
 	
 	@RequestMapping("user_message_update")
 	public String userMessageUpdate(User user) {
 		userService.update(user);
-		return "fore/userEdit";
+		return "redirect:fore_room_list";
 	}
 	
 	@RequestMapping("judge_login")
@@ -64,8 +64,7 @@ public class UserController {
         	for(User u : us) {
         		if(u.getName().equals(name) && u.getPassword().equals(password)) {
         			flag = true;
-        			//session.setAttribute("user", u);
-        			model.addAttribute("user",u);
+        			session.setAttribute("user", u);
         		}
         	}
         	if(flag) {
@@ -122,5 +121,5 @@ public class UserController {
 	public String delete(int id) {
 		userService.delete(id);
 		return "redirect:admin_user_list";
-	}
+}
 }

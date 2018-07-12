@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="cn.scau.meetingroom.mapper.SelectRoomMapper">
+    	<resultMap id="BaseResultMap" type="cn.scau.meetingroom.pojo.Order">
+		    <id column="id" jdbcType="INTEGER" property="id" />
+		    <result column="uid" jdbcType="INTEGER" property="uid" />
+		    <result column="rid" jdbcType="INTEGER" property="rid" />
+		    <result column="date" jdbcType="TIMESTAMP" property="date" />
+		    <result column="startTime" jdbcType="TIMESTAMP" property="startTime" />
+		    <result column="endTime" jdbcType="TIMESTAMP" property="endTime" />
+		  </resultMap>
+        <select id="selectEmptyRooms" parameterType="cn.scau.meetingroom.pojo.Order"  resultType="cn.scau.meetingroom.pojo.Room">
+            select * from room where id not in(
+			       select rid from orderTable
+			       		 where endTime >= #{startTime} and #{endTime} >= startTime
+			       		<!-- where startTime between #{startTime} and #{endTime}
+                 		or endTime between #{startTime} and #{endTime} -->
+			)
+        </select>    
+    </mapper>

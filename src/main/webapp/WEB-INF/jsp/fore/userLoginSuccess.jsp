@@ -5,44 +5,75 @@
 <%@include file="../include/fore/foreHeader.jsp"%>
 <%@include file="../include/fore/foreNavigator.jsp"%>
 <script type="text/javascript">
-    onload = function ()
-    {
-       var year=new Date().getFullYear(); //获取当前年份
-       var sel = document.getElementById ('year');//获取select下拉列表
-       for ( var i = 2018; i <= year; i++)//循环添加2006到当前年份加3年的每个年份依次添加到下拉列表
-       {
-           var option = document.createElement ('option');
-           option.value = i;
-           var txt = document.createTextNode (i);
-           option.appendChild (txt);
-           sel.appendChild (option);
-       }
-       
-       var month =new Date().getMonth()+1; //获取月份
-       var set = document.getElementById ('month');//获取select下拉列表
 
-       for ( var i = month; i <= month+11,i<=12; i++)
-       {
-           var option = document.createElement ('option');
-           option.value = i;
-           var txt = document.createTextNode (i);
-           option.appendChild (txt);
-           set.appendChild (option);
-       }
+$(function(){
+   $("#selectButton").click(function(){
+	   
+	   var year = $("#year option:selected").text();
+	   var month = $("#month option:selected").text();
+	   if(month.length<=1){
+		   month = "0"+month;
+		   /* alert(month); */
+	   }
+	   var day = $("#day option:selected").text();
+	   if(day.length<=1){
+		   day = "0"+day;
+		   /* alert(day); */
+	   }
+	   var date = year+"-"+month+"-"+day;
+	   var start = $("#st option:selected").text();
+	   var end = $("#et option:selected").text();
+	   var startTime = date+" "+start;
+	   var endTime = date+" "+end;
+		
+	   $("#startInput").attr("value",startTime);
+	   $("#endInput").attr("value",endTime);
+	   
+	   var page = $(this).attr("path");
+	   $("#form").attr("action",page);
+	   $("#form").submit();
+   });
+   
+   onload = function ()
+   {
+      var year=new Date().getFullYear(); //获取当前年份
+      var sel = document.getElementById ('year');//获取select下拉列表
+      for ( var i = 2018; i <= year; i++)//循环添加2006到当前年份加3年的每个年份依次添加到下拉列表
+      {
+          var option = document.createElement ('option');
+          option.value = i;
+          var txt = document.createTextNode (i);
+          option.appendChild (txt);
+          sel.appendChild (option);
+      }
       
-       var date = new Date(new Date().getFullYear(), new Date().getMonth()+1, 1),
-       lastDay = new Date(date.getTime() - 864e5).getDate();
-      
-       var setDay = document.getElementById ('day');//获取select下拉列表
-       for ( var i = new Date().getDate(); i <=lastDay; i++)
-       {
-           var option = document.createElement ('option');
-           option.value = i;
-           var txt = document.createTextNode (i);
-           option.appendChild (txt);
-           setDay.appendChild (option);
-       }
-    }
+      var month =new Date().getMonth()+1; //获取月份
+      var set = document.getElementById ('month');//获取select下拉列表
+
+      for ( var i = month; i <= month+11,i<=12; i++)
+      {
+          var option = document.createElement ('option');
+          option.value = i;
+          var txt = document.createTextNode (i);
+          option.appendChild (txt);
+          set.appendChild (option);
+      }
+     
+      var date = new Date(new Date().getFullYear(), new Date().getMonth()+1, 1),
+      lastDay = new Date(date.getTime() - 864e5).getDate();
+     
+      var setDay = document.getElementById ('day');//获取select下拉列表
+      for ( var i = new Date().getDate(); i <=lastDay; i++)
+      {
+          var option = document.createElement ('option');
+          option.value = i;
+          var txt = document.createTextNode (i);
+          option.appendChild (txt);
+          setDay.appendChild (option);
+      }
+   }
+});
+    
 </script>
 
 <title>首页-会议室预定</title>
@@ -67,7 +98,15 @@
 		 <option >11:00:00</option>
 		 <option >12:00:00</option>
        </select><span>结束</span>
-      <span>  </span><button class="btn btn-primary" type="button">查询空会议室</button>
+    	<form id="form" action="" method="post">
+    		<input type="hidden" id="startInput" name="startTime" value="">
+    		<input type="hidden" id="endInput" name="endTime" value="">
+    		<input type="hidden" id="selectInput" name="selectStr" value="select">
+    		<button id="selectButton" class="btn btn-primary" type="submit" path="fore_room_emptylist">
+	       	      查询空会议室
+	      	</button>
+    	</form>
+      
       
     </div>
     <br>
@@ -78,10 +117,10 @@
 	           <thead>
 					<tr class="success">
 						<th>会议室ID</th>
-						<th>会议室名称</th>
+						<th>空会议室</th>
 						<th>容量</th>
 						<th>设备</th>
-						<th>开会人员情况</th>
+						<th>开会人员管理</th>
 						<th>预定情况</th>
 					</tr>
 				</thead>
