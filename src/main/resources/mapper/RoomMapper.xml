@@ -60,8 +60,6 @@
     from room
     where id = #{id,jdbcType=INTEGER}
   </select>
-  
-  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from room
     where id = #{id,jdbcType=INTEGER}

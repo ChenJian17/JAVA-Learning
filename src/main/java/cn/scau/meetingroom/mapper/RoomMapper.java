@@ -2,8 +2,6 @@ package cn.scau.meetingroom.mapper;
 
 import cn.scau.meetingroom.pojo.Room;
 import cn.scau.meetingroom.pojo.RoomExample;
-
-import java.util.Date;
 import java.util.List;
 
 public interface RoomMapper {
@@ -20,6 +18,4 @@ public interface RoomMapper {
     int updateByPrimaryKeySelective(Room record);
 
     int updateByPrimaryKey(Room record);
-    
-    
 }
