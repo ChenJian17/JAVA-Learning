@@ -54,6 +54,8 @@ public class UserController {
 		return "redirect:fore_room_list";
 	}
 	
+	
+	
 	@RequestMapping("judge_login")
 	public String judge(Model model, Page page,String name, String password,
 			HttpServletRequest request,HttpSession session) throws UnsupportedEncodingException {
