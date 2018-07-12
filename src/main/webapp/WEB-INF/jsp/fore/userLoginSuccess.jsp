@@ -34,6 +34,23 @@ $(function(){
 	   $("#form").submit();
    });
    
+   $(".orderButton").click(function(){
+	    var confirmOrder = confirm("确认预定");
+		if(confirmOrder){
+			var startTimeInput = "${startTimeInput}";
+			var endTimeInput = "${endTimeInput}";
+			$(".startTimeInput").attr("value",startTimeInput);
+			$(".endTimeInput").attr("value",endTimeInput);
+			/* alert($(".startTimeInput").attr("value")+"到--"+$(".endTimeInput").attr("value")); */
+			var page = $(this).attr("path");
+			$(".orderForm").attr("action",page);
+			$(".orderForm").submit();
+			return true;
+		}
+			
+		return false;
+	});
+   
    onload = function ()
    {
       var year=new Date().getFullYear(); //获取当前年份
@@ -132,11 +149,14 @@ $(function(){
 						<td>${r.name }</td>
 						<td>${r.capacity }</td>
 						<td>${r.device }</td>
-						<td><a href="admin_room_edit?id=${r.id}">
-						         <span class="glyphicon glyphicon-list"></span></a></td>
+						<td><a href="meeting_manager?oid=${o.id}">
+						         <span class="glyphicon glyphicon-list"></span></a>
+						</td>
 						<td>
-							<form action="fore_order_add" method="post">
-								<button type="submit" class="btn btn-primary">预定会议室</button>
+							<form action="" method="post" class="orderForm">
+								<input type="hidden" class="startTimeInput" name="startTime" value="">
+    							<input type="hidden" class="endTimeInput" name="endTime" value="">
+								<button type="submit" path="fore_order_add?rid=${r.id }" class="btn btn-primary orderButton">预定会议室</button>
 							</form>
 						</td>
 					</tr>

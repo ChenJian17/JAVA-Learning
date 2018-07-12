@@ -9,13 +9,12 @@
 
 </script>
 
-<title>查看会议室预定情况</title>
+<title>查看本次会议室预定</title>
 
 <div class="workingArea">
-	<h1 class="label label-info" >查看个人预定情况</h1>
+	<h1 class="label label-info" >本次会议室预定信息</h1>
 	<br>
-	<br>
-	
+	<br>	
 	<div class="listDataTableDiv">
 		<table class="table table-striped table-bordered table-hover  table-condensed">
 			<thead>
@@ -28,11 +27,10 @@
 					<th>预定使用结束时间</th>
 					<th>开会人员管理</th>
 					<th>预定状态</th>
+					
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${ord}" var="o">
-				
 				<tr>
 					<td>${o.id}</td>
 					<td>${o.rid }</td>					
@@ -51,13 +49,11 @@
                         </a>
                     </td>
 				</tr>
-				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-
-	<div class="pageDiv">
-		<%@include file="../include/admin/adminPage.jsp" %>
-	</div>	
+	
 </div>
 
+
+<%@include file="../include/admin/adminFooter.jsp"%>

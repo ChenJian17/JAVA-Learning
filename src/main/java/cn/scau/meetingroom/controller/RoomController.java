@@ -82,6 +82,8 @@ public class RoomController {
 	    page.setTotal(total);
 		model.addAttribute("rs", rs);
 		model.addAttribute("page", page);
+		model.addAttribute("startTimeInput", startTime);
+		model.addAttribute("endTimeInput", endTime);
 		session.setAttribute("start", startTime);
 		session.setAttribute("end", endTime);
 		return "fore/userLoginSuccess";
