@@ -6,6 +6,9 @@
 <%@include file="../include/fore/foreNavigator.jsp"%>
 
 <script>
+$(function(){
+	$("#department option[value='${department}'").attr("selected","selected"); 
+});
 </script>
 
 <title>会议室预定系统-后台管理</title>
@@ -15,14 +18,12 @@
 	<br>
 	<br>
 	<form action="fore_meeting_person_search" method="post">
-		 <div>
-	       <select name="department">
-	         <option >销售部</option>
+	       <select name="department" id="department">
+	         <option selected="selected">销售部</option>
 			 <option >人事部</option>
 			 <option >财务部</option>
 	       </select>
 	       <button type="submit" class="btn btn-primary">查询部门成员</button>
-		 </div>
 	</form>
 	<br>
 	<form action="fore_meetingperson_selectAdded" method="post">
@@ -35,6 +36,7 @@
 			<table class="table table-striped table-bordered table-hover  table-condensed">
 				<thead>
 					<tr class="success">
+						<th>部门</th>
 						<th>工号</th>
 						<th>姓名</th>
 						<th>性别</th>
@@ -46,6 +48,7 @@
 				<tbody>
 					<c:forEach items="${us}" var="u">
 					<tr>
+						<td>${u.department }</td>
 						<td>${u.id}</td>
 						<td>${u.name }</td>
 						<td>${u.sex }</td>

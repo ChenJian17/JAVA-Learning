@@ -10,7 +10,7 @@
     $(function(){
 
         $("#editForm").submit(function(){
-            if(!checkEmpty("name","用户名"))
+            if(!checkEmpty("name","用户密码"))
                 return false;
             if(!checkEmpty("sex","用户性别"))
                 return false;
@@ -37,13 +37,13 @@
 	</ol>
 
 	<div class="panel panel-warning editDiv">
-		<div class="panel-heading">编辑用户表</div>
+		<div class="panel-heading">用户信息</div>
 		<div class="panel-body">
 			<form method="post" id="editForm" action="user_message_update">
 				<table class="editTable">
 					<tr>
 						<td>用户密码</td>
-						<td><input  id="name" name="name" value="${u.password}" type="text" class="form-control"></td>
+						<td><input  id="name" name="name" type="text" class="form-control"></td>
 					</tr>
 					<tr>
 						<td>用户性别</td>
@@ -68,7 +68,7 @@
 					<tr class="submitTR">
 						<td colspan="2" align="center">
 							<input type="hidden" name="id" value="${u.id}">
-							<button id="submitButton" type="submit" class="btn btn-success">提 交</button>
+							<button id="submitButton" type="submit" class="btn btn-success">更改信息</button>
 						</td>
 					</tr>
 				</table>

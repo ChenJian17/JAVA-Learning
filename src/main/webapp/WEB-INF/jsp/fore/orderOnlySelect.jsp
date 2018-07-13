@@ -19,14 +19,14 @@
 		<table class="table table-striped table-bordered table-hover  table-condensed">
 			<thead>
 				<tr class="success">
-					<th>预定编号</th>
-					<th>会议室编号</th>
-					<th>预定用户id</th>
+					<th>会议编号</th>
+					<th>会议室ID</th>
+					<th>预定者工号</th>
 					<th>预定日期</th>
-					<th>预定使用开始时间</th>
-					<th>预定使用结束时间</th>
+					<th>会议开始时间</th>
+					<th>会议结束时间</th>
 					<th>开会人员管理</th>
-					<th>预定状态</th>
+					<th>会议室预定</th>
 					
 				</tr>
 			</thead>

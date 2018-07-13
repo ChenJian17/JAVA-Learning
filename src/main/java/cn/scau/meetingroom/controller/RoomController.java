@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,9 +36,6 @@ public class RoomController {
 	
 	@RequestMapping("admin_room_list")
 	public String list(Model model ,Page page) throws ParseException {
-		/*List<Room> rs = roomService.list();
-		model.addAttribute("rs", rs);*/
-
 		PageHelper.offsetPage(page.getStart(),page.getCount());
 		List<Room> rs = roomService.list();
 		int total = (int) new PageInfo<>(rs).getTotal();
@@ -48,21 +46,15 @@ public class RoomController {
 	}
 	@RequestMapping("fore_room_list")
 	public String forelist(Model model ,Page page,HttpSession session) {
-		/*List<Room> rs = roomService.list();
-		model.addAttribute("rs", rs);*/
 		User user =(User)  session.getAttribute("user");
-		/*PageHelper.offsetPage(page.getStart(),page.getCount());
-		List<Room> rs = roomService.list();
-		int total = (int) new PageInfo<>(rs).getTotal();
-	    page.setTotal(total);
-		model.addAttribute("rs", rs);
-		model.addAttribute("page", page);*/
 		model.addAttribute("u", user);
 		return "fore/userLoginSuccess";
 	}
 	
 	@RequestMapping("fore_room_emptylist")
-	public String emptylist(Model model,String selectStr,String startTime,String endTime,Page page ,HttpSession session) throws ParseException {
+	public String emptylist(Model model,String selectStr,String startTime,String endTime,
+			String year,String month,String day,
+			Page page ,HttpSession session) throws ParseException {
 		
 		if(selectStr==null) {
 			startTime = (String) session.getAttribute("start");
@@ -84,8 +76,22 @@ public class RoomController {
 		model.addAttribute("page", page);
 		model.addAttribute("startTimeInput", startTime);
 		model.addAttribute("endTimeInput", endTime);
+		if(year!=null&&month!=null&&day!=null) {
+			if(StringUtils.substring(month, 0, 1).equals("0")) {
+				month = StringUtils.substring(month, 1, 2);
+			}
+			if(StringUtils.substring(day, 0, 1).equals("0")) {
+				day = StringUtils.substring(day, 1, 2);
+			}
+			model.addAttribute("year", year);
+			model.addAttribute("month", month);
+			model.addAttribute("day", day);
+		}
+		
+		
 		session.setAttribute("start", startTime);
 		session.setAttribute("end", endTime);
+		
 		return "fore/userLoginSuccess";
 		
 		

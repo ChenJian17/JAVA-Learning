@@ -29,6 +29,7 @@ public class MeetingPersonController {
 		String department = request.getParameter("department");
 		List<User> us = meetingPersonService.searchDepartment(department);
 		model.addAttribute("us",us);
+		model.addAttribute("department", department);
 		return "fore/meetingPersonList";
 	}
 	

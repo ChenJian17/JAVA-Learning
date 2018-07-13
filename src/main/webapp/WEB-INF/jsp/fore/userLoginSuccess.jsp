@@ -28,7 +28,9 @@ $(function(){
 		
 	   $("#startInput").attr("value",startTime);
 	   $("#endInput").attr("value",endTime);
-	   
+	   $("#yearInput").attr("value",year);
+	   $("#monthInput").attr("value",month);
+	   $("#dayInput").attr("value",day);
 	   var page = $(this).attr("path");
 	   $("#form").attr("action",page);
 	   $("#form").submit();
@@ -52,10 +54,14 @@ $(function(){
 	});
    
    onload = function ()
-   {
+   {	
       var year=new Date().getFullYear(); //获取当前年份
       var sel = document.getElementById ('year');//获取select下拉列表
-      for ( var i = 2018; i <= year; i++)//循环添加2006到当前年份加3年的每个年份依次添加到下拉列表
+      
+      /* if(game=="1")
+    	  return ; */
+      
+      for ( var i = 2018; i <= year; i++)//循环添加2018到当前年份的每个年份依次添加到下拉列表
       {
           var option = document.createElement ('option');
           option.value = i;
@@ -75,6 +81,7 @@ $(function(){
           option.appendChild (txt);
           set.appendChild (option);
       }
+      $("#month option[value='${month}'").attr("selected","selected"); 
      
       var date = new Date(new Date().getFullYear(), new Date().getMonth()+1, 1),
       lastDay = new Date(date.getTime() - 864e5).getDate();
@@ -88,6 +95,8 @@ $(function(){
           option.appendChild (txt);
           setDay.appendChild (option);
       }
+      $("#day option[value='${day}'").attr("selected","selected"); 
+      
    }
 });
     
@@ -102,7 +111,7 @@ $(function(){
     <div class="input-group">
       <!-- <input type="text" style="width:100px"  class="form-control" placeholder="startTime">
       <input type="text" style="width:100px"  class="form-control" placeholder="endTime"> -->
-      <select id="year"></select><span>年</span>
+      <select id="year" game="0"></select><span>年</span>
       <select id="month"></select><span>月</span>
       <select id="day"></select><span>日</span>
        <select id="st" placeholder="09:00:00">
@@ -118,6 +127,9 @@ $(function(){
     	<form id="form" action="" method="post">
     		<input type="hidden" id="startInput" name="startTime" value="">
     		<input type="hidden" id="endInput" name="endTime" value="">
+    		<input type="hidden" id="yearInput" name="year" value="">
+    		<input type="hidden" id="monthInput" name="month" value="">
+    		<input type="hidden" id="dayInput" name="day" value="">
     		<input type="hidden" id="selectInput" name="selectStr" value="select">
     		<button id="selectButton" class="btn btn-primary" type="submit" path="fore_room_emptylist">
 	       	      查询空会议室
@@ -137,7 +149,6 @@ $(function(){
 						<th>空会议室</th>
 						<th>容量</th>
 						<th>设备</th>
-						<th>开会人员管理</th>
 						<th>预定情况</th>
 					</tr>
 				</thead>
@@ -149,9 +160,6 @@ $(function(){
 						<td>${r.name }</td>
 						<td>${r.capacity }</td>
 						<td>${r.device }</td>
-						<td><a href="meeting_manager?oid=${o.id}">
-						         <span class="glyphicon glyphicon-list"></span></a>
-						</td>
 						<td>
 							<form action="" method="post" class="orderForm">
 								<input type="hidden" class="startTimeInput" name="startTime" value="">

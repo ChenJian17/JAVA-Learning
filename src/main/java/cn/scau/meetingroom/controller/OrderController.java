@@ -64,17 +64,10 @@ public class OrderController {
 		User user = (User) session.getAttribute("user");
 		int uid = user.getId();
 		PageHelper.offsetPage(page.getStart(),page.getCount());
-		List<Order> os = orderService.list();
-		//User u = userService.get(uid);
-		List<Order> ord=new ArrayList<Order>();
-		for(Order r:os){
-			if(r.getUid().equals(uid)){
-				ord.add(r);
-			}
-		}
+		List<Order> os = orderService.list_A_User(uid);
 		int total = (int) new PageInfo<>(os).getTotal();
 	    page.setTotal(total);
-		model.addAttribute("ord", ord);
+		model.addAttribute("os", os);
 		model.addAttribute("page", page);
 		return "fore/orderList";
 	}

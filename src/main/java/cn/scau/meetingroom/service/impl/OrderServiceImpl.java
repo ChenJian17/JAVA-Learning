@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.scau.meetingroom.mapper.OrderMapper;
+import cn.scau.meetingroom.pojo.MeetingPersonExample.Criteria;
 import cn.scau.meetingroom.pojo.Order;
 import cn.scau.meetingroom.pojo.OrderExample;
 import cn.scau.meetingroom.service.OrderService;
@@ -22,6 +23,18 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 		OrderExample example = new OrderExample();
 		example.setOrderByClause("id desc");
+		return orderMapper.selectByExample(example);
+	}
+	
+	//新增自定义查询
+	@Override
+	public List<Order> list_A_User(int uid) {
+		// TODO Auto-generated method stub
+		OrderExample example = new OrderExample();
+		example.setOrderByClause("id desc");
+		example.setDistinct(false);
+		OrderExample.Criteria criteria = example.createCriteria();
+		criteria.andUidEqualTo(uid);
 		return orderMapper.selectByExample(example);
 	}
 
@@ -60,5 +73,7 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 
 	}
+
+	
 
 }

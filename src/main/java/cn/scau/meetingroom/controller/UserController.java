@@ -42,15 +42,16 @@ public class UserController {
 	}
 	
 	@RequestMapping("fore_user_message")
-	public String userMessage(Model model,int uid) {
-		User u = userService.get(uid);
+	public String userMessage(Model model,HttpSession session) {
+		User u = (User) session.getAttribute("user");
 		model.addAttribute("u",u);
 		return "fore/userEdit";
 	}
 	
 	@RequestMapping("user_message_update")
-	public String userMessageUpdate(User user) {
+	public String userMessageUpdate(User user,HttpSession session) {
 		userService.update(user);
+		session.setAttribute("user", user);
 		return "redirect:fore_room_list";
 	}
 	
@@ -59,6 +60,9 @@ public class UserController {
 	@RequestMapping("judge_login")
 	public String judge(Model model, Page page,String name, String password,
 			HttpServletRequest request,HttpSession session) throws UnsupportedEncodingException {
+		if(name==null||password==null) {
+			return "fore/loginFailure";
+		}
 		String radio = request.getParameter("user");
         boolean flag = false;
         if(radio.equals("1")) {//用户登录
