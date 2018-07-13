@@ -6,14 +6,18 @@
 <%@include file="../include/fore/foreNavigator.jsp"%>
 
 <script>
+function p(){
+	alert("hzw sheng");
+}
 $(function(){
 	$("#department option[value='${department}'").attr("selected","selected"); 
+	
 });
 </script>
 
 <title>会议室预定系统-后台管理</title>
 
-<div class="workingArea">
+<div onload="p()" class="workingArea">
 	<h1 class="label label-info" >开会人员管理 </h1>
 	<br>
 	<br>

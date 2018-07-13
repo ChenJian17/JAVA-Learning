@@ -9,5 +9,6 @@
 		<a class="navbar-brand" href="admin_room_list">会议室管理</a>
 		<a class="navbar-brand" href="admin_user_list">用户管理</a>
 		<a class="navbar-brand" href="admin_order_list">预定管理</a>
+		<a class="navbar-brand" href="admin_logout">退出系统</a>
 	</nav>
 </div>
