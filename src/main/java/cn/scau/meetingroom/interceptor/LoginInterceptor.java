@@ -11,6 +11,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import cn.scau.meetingroom.pojo.Admin;
 import cn.scau.meetingroom.pojo.User;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter{
@@ -29,9 +30,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
      */
 	
 	public boolean preHandle(HttpServletRequest request,
-            HttpServletResponse response, Object handler) throws IOException {
+            HttpServletResponse response, Object handler) throws Exception {
 		String[] noNeedAuthPage = new String[] {
-				"fore_login","judge_login"
+				"fore_login","fore_login_judge"
 		};
 		
 		HttpSession session = request.getSession();
@@ -42,11 +43,21 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		System.out.println("uri = "+uri);*/
 		
 		String method = StringUtils.substringAfterLast(uri,"/" );
-		if(!Arrays.asList(noNeedAuthPage).contains(method)) {
-			User user =(User) session.getAttribute("user");
-            if(null==user){
+		if(method.startsWith("fore")) {
+			if(!Arrays.asList(noNeedAuthPage).contains(method)) {
+				User user =(User) session.getAttribute("user");
+	            if(null==user){
+	            	System.out.println("这是个bug = "+method);
+	                response.sendRedirect("fore_login");
+	            }
+			}
+		}else if(method.startsWith("admin")) {
+			Admin admin = (Admin) session.getAttribute("admin");
+            if(null==admin){
                 response.sendRedirect("fore_login");
             }
+		}else {
+			response.sendRedirect("fore_login");
 		}
 		
 		return true;

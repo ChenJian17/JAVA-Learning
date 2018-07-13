@@ -22,6 +22,7 @@
 				<tr class="success">
 					<th>工号</th>
 					<th>姓名</th>
+					<th>密码</th>
 					<th>性别</th>
 					<th>类型</th>
 					<th>部门</th>
@@ -37,6 +38,7 @@
 				<tr>
 					<td>${r.id}</td>
 					<td>${r.name }</td>
+					<td>${r.password }</td>
 					<td>${r.sex }</td>
 					<td>${r.userType }</td>
 					<td>${r.department }</td>

@@ -39,7 +39,7 @@
 	<div class="panel panel-warning editDiv">
 		<div class="panel-heading">用户信息</div>
 		<div class="panel-body">
-			<form method="post" id="editForm" action="user_message_update">
+			<form method="post" id="editForm" action="fore_user_update">
 				<table class="editTable">
 					<tr>
 						<td>用户密码</td>

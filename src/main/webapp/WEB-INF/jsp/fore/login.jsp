@@ -146,7 +146,7 @@ padding:0;
       <font color="white">会议室预订管理系统</font>>
       <hr style="background-color:black;height:4px;border:none;top:30px;width:100%;">
     </div> 
-	<form action="judge_login" method="post">
+	<form action="fore_login_judge" method="post">
 		<div class="loginSmallDiv" id="loginSmallDiv">
 			<div class="login_acount_text">账户登录</div>
 			<div class="loginInput ">

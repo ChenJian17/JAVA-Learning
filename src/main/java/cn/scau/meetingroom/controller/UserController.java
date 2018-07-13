@@ -37,7 +37,8 @@ public class UserController {
 	}
 	
 	@RequestMapping("fore_user_logout")
-	public String userLogout(Model model) {
+	public String userLogout(Model model,HttpSession session) {
+		session.removeAttribute("user");
 		return "fore/login";
 	}
 	
@@ -48,7 +49,7 @@ public class UserController {
 		return "fore/userEdit";
 	}
 	
-	@RequestMapping("user_message_update")
+	@RequestMapping("fore_user_update")
 	public String userMessageUpdate(User user,HttpSession session) {
 		userService.update(user);
 		session.setAttribute("user", user);
@@ -57,7 +58,7 @@ public class UserController {
 	
 	
 	
-	@RequestMapping("judge_login")
+	@RequestMapping("fore_login_judge")
 	public String judge(Model model, Page page,String name, String password,
 			HttpServletRequest request,HttpSession session) throws UnsupportedEncodingException {
 		if(name==null||password==null) {
@@ -80,6 +81,7 @@ public class UserController {
 			List<Admin> as = adminService.list();
         	for(Admin a : as) {
         		if(a.getName().equals(name) && a.getPassword().equals(password)) {
+        			session.setAttribute("admin", a);
         			flag = true;
         		}
         	}

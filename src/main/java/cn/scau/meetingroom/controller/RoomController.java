@@ -55,6 +55,9 @@ public class RoomController {
 	public String emptylist(Model model,String selectStr,String startTime,String endTime,
 			String year,String month,String day,
 			Page page ,HttpSession session) throws ParseException {
+		User user =(User)  session.getAttribute("user");
+		if(user==null)
+			return "redirect:fore_login";
 		
 		if(selectStr==null) {
 			startTime = (String) session.getAttribute("start");
@@ -88,13 +91,10 @@ public class RoomController {
 			model.addAttribute("day", day);
 		}
 		
-		
 		session.setAttribute("start", startTime);
 		session.setAttribute("end", endTime);
 		
 		return "fore/userLoginSuccess";
-		
-		
 	}
 	
 	@RequestMapping("admin_room_add")
