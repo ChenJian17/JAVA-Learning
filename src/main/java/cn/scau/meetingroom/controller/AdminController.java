@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.scau.meetingroom.pojo.Admin;
 import cn.scau.meetingroom.service.AdminService;
 
 @Controller
@@ -17,7 +18,9 @@ public class AdminController {
 	
 	@RequestMapping("admin_logout")
 	public String logout(Model model,HttpSession session) {
-		session.removeAttribute("admin");
+		Admin admin = (Admin) session.getAttribute("admin");
+		if(admin!=null)
+			session.removeAttribute("admin");
 		return "redirect:fore_login";
 	}
 }

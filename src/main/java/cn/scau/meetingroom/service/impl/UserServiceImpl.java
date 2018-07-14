@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 	public List<User> list() {
 		// TODO Auto-generated method stub
 		UserExample example = new UserExample();
-		example.setOrderByClause("id");
+		example.setOrderByClause("id desc");
 		return userMapper.selectByExample(example);
 	}
 

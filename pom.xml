@@ -187,6 +187,12 @@
       <version>${mybatis-generator.version}</version>
     </dependency>
     
+    <dependency>
+  		<groupId>org.apache.poi</groupId>
+  		<artifactId>poi</artifactId>
+  		<version>3.13</version>
+  	</dependency>
+    
   </dependencies>
 
   <build>

@@ -38,7 +38,9 @@ public class UserController {
 	
 	@RequestMapping("fore_user_logout")
 	public String userLogout(Model model,HttpSession session) {
-		session.removeAttribute("user");
+		User user = (User) session.getAttribute("user");
+		if(user!=null)
+			session.removeAttribute("user");
 		return "fore/login";
 	}
 	
